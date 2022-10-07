@@ -54,7 +54,7 @@ class TestReversePolishNotation{
                     echo "Not passed $name<br />";
                 }
             }catch(InvalidArgumentException $e){
-                if($test["result"] == false){
+                if($e->getMessage() == $test["result"]){
                     echo "Passed $name<br />";
                 }else{
                     echo "Not passed $name<br />";
@@ -69,8 +69,8 @@ $tests = array(
     ["name" => "Test 2", "args" => ["2", "3", "-"], "result" => -1],
     ["name" => "Test 3", "args" => ["2", "3", "-", "2", "+"], "result" => 1],
     ["name" => "Test 4", "args" => ["2", "3", "*"], "result" => 6],
-    ["name" => "Test 5", "args" => ["2", "*"], "result" => false],
-    ["name" => "Test 6", "args" => ["2", "0", "/"], "result" => false],
+    ["name" => "Test 5", "args" => ["2", "*"], "result" => "Array should contain 3 or more elements"],
+    ["name" => "Test 6", "args" => ["2", "0", "/"], "result" => "Zero division"],
     ["name" => "Test 7", "args" => ["18", "2", "+", "10", "/"], "result" => 2],
 );
 
